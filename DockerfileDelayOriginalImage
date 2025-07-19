@@ -1,0 +1,15 @@
+# Use the original image you wanted to run
+FROM nginx:latest
+
+# Copy your wrapper script into the image
+COPY entrypoint.sh /entrypoint.sh
+
+# Make the script executable
+RUN chmod +x /entrypoint.sh
+
+# Tell the container to run your script as its entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# The original command of the image is now passed to your script
+# For the nginx image, this is ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
