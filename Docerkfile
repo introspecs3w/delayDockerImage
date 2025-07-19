@@ -1,0 +1,6 @@
+# Use a tiny base image
+FROM alpine:latest
+
+# The command to run when the container starts.
+# It prints a message, waits 30 seconds, then prints another message and exits.
+CMD sh -c "echo 'Delay container started, waiting for 120 seconds...' && sleep 120 && echo 'Delay finished. Other services can now start.'"
